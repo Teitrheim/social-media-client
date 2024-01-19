@@ -1,6 +1,6 @@
 import * as storage from "../storage/index.js";
 
-export const headers = (contentType) => {
+export const headers = contentType => {
   const token = storage.load("token");
   const headers = {};
 

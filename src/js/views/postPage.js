@@ -6,7 +6,7 @@ import {
 } from "../templates/index.js";
 import { postCommentsTemplate } from "../templates/post/comments.js";
 
-export const publicPostPage = async (post) => {
+export const publicPostPage = async post => {
   const element = document.createElement("div");
   element.classList.add("post", "page", "mb-3");
   const thumbnail = postThumbnailTemplate(post, true);
@@ -15,7 +15,7 @@ export const publicPostPage = async (post) => {
   return element;
 };
 
-export const postPage = async (postId) => {
+export const postPage = async postId => {
   if (!isLoggedIn()) {
     location.href = "./";
   } else {

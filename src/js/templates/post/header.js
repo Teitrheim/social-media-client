@@ -3,7 +3,7 @@ import { templateInstance } from "../instance.js";
 import { profileThumbnail } from "../profile/thumbnail.js";
 import { postTags } from "./tags.js";
 
-export const postHeader = (post) => {
+export const postHeader = post => {
   const clone = templateInstance("postHeader");
 
   clone.querySelector(".card-header").href = `./?view=post&postId=${post.id}`;

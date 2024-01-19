@@ -1,6 +1,6 @@
 import { templateInstance } from "../instance.js";
 
-export const commentsBadgeTemplate = (comments) => {
+export const commentsBadgeTemplate = comments => {
   if (comments && comments.length) {
     const clone = templateInstance("commentsTag");
     clone.querySelector(".badge").innerText =

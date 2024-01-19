@@ -6,7 +6,7 @@ import { postActions } from "./actions.js";
 import { postReactionMenu } from "./reactions.js";
 import { postCommentsTemplate } from "./comments.js";
 
-export const postPageTemplate = (post) => {
+export const postPageTemplate = post => {
   const clone = templateInstance("postPage");
 
   clone.querySelector(".post").id = post.id;

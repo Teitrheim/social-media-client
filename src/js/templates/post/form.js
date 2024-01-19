@@ -16,7 +16,7 @@ function populatePreview(post, preview) {
   preview.append(page);
 }
 
-export const postFormTemplate = (post) => {
+export const postFormTemplate = post => {
   const clone = templateInstance("postForm");
   const form = clone.querySelector("#postForm");
   const button = clone.querySelector("[data-action=submit]");
@@ -40,7 +40,7 @@ export const postFormTemplate = (post) => {
     populatePreview(post, preview);
   });
 
-  form.addEventListener("submit", async (event) => {
+  form.addEventListener("submit", async event => {
     event.preventDefault();
     const url = new URL(location.href);
     const id = url.searchParams.get("postId");

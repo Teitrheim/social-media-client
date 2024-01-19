@@ -2,7 +2,7 @@ import { templateInstance } from "../instance.js";
 import { emojiSubset } from "../../tools/index.js";
 import { reactionListener } from "../../listeners/index.js";
 
-export const postReactionMenu = (post) => {
+export const postReactionMenu = post => {
   const clone = templateInstance("reactionMenu");
 
   if (post.reactions && post.reactions.length) {
@@ -10,17 +10,17 @@ export const postReactionMenu = (post) => {
       .sort((a, b) => {
         return b.count - a.count;
       })
-      .map((reaction) => reactionTemplate(reaction));
+      .map(reaction => reactionTemplate(reaction));
     clone.querySelector(".reactions").prepend(...sortedReactions);
   }
 
   const emojis = emojiSubset(post.reactions);
   clone
     .querySelector(".dropdown-menu")
-    .append(...emojis.map((emoji) => reactionOptionTemplate(emoji, post.id)));
+    .append(...emojis.map(emoji => reactionOptionTemplate(emoji, post.id)));
 
   const reactions = clone.querySelectorAll("[data-reaction]");
-  reactions.forEach((reaction) => {
+  reactions.forEach(reaction => {
     reaction.addEventListener("click", reactionListener);
   });
 

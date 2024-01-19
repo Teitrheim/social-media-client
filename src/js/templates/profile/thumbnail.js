@@ -1,4 +1,4 @@
-export const profileThumbnail = (profile) => {
+export const profileThumbnail = profile => {
   const element = document.createElement("a");
   element.classList.add("profile", "thumbnail");
   element.href = `./?view=profile&name=${profile.name}`;

@@ -4,7 +4,7 @@ import { postList } from "../../views/postList.js";
 import { templateInstance } from "../instance.js";
 import { profileFollows } from "./follows.js";
 
-export const profilePageTemplate = (data) => {
+export const profilePageTemplate = data => {
   const clone = templateInstance("profilePagePrivate");
   const { name } = profile();
   clone.querySelector("img.avatar").src = data.avatar;
@@ -23,7 +23,7 @@ export const profilePageTemplate = (data) => {
   }
 
   if (data.name !== name) {
-    if (data.followers.find((follower) => follower.name === name)) {
+    if (data.followers.find(follower => follower.name === name)) {
       clone.querySelector("[data-action=follow]").remove();
       clone.querySelector("[data-action=unfollow]").dataset.name = data.name;
       clone

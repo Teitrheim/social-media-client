@@ -7,7 +7,7 @@ export async function react(postId, symbol) {
     {
       headers: headers(),
       method: "put",
-    },
+    }
   );
 
   if (response.ok) {
