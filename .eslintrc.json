@@ -25,9 +25,13 @@
       }
     },
     {
-      "files": ["cypress.config.js"],
+      "files": ["**/*.test.js", "cypress.config.js"],
       "env": {
-        "node": true
+        "jest": true,
+        "node": true,
+        "plugins": ["jest"],
+        "extends": ["plugin:jest/recommended"],
+        "rules": { "jest/prefer-expect-assertions": "off" }
       }
     }
   ],
