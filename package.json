@@ -40,5 +40,5 @@
     "*.js": "eslint --cache --fix",
     "*.{js,css,scss,json,md, html}": "prettier --write"
   },
-  "version": "1.2.0"
+  "version": "1.3.0"
 }
