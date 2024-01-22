@@ -1,7 +1,9 @@
 describe("Login Test", () => {
   it("allows the user to log in with valid credentials", () => {
     // Visit the login page
-    cy.visit("/login");
+    cy.visit("http://127.0.0.1:5500");
+    // interact with the button
+    cy.get("#loginModal").click();
 
     // Fill in the login form
     cy.get('input[name="email"]').type("valid_user@example.com");
