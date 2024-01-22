@@ -28,11 +28,11 @@
       "files": ["**/*.test.js", "cypress.config.js"],
       "env": {
         "jest": true,
-        "node": true,
-        "plugins": ["jest"],
-        "extends": ["plugin:jest/recommended"],
-        "rules": { "jest/prefer-expect-assertions": "off" }
-      }
+        "node": true
+      },
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended"],
+      "rules": { "jest/prefer-expect-assertions": "off" }
     }
   ],
   "parserOptions": {
