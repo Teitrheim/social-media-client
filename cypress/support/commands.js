@@ -23,3 +23,19 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("login", (email, password) => {
+  cy.visit("/"); // Navigate to the base URL or login page
+
+  // Open the login modal
+  cy.get('button[data-bs-target="#loginModal"]').click();
+
+  // Fill in the login form and submit
+  cy.get("#loginEmail").type(email);
+  cy.get("#loginPassword").type(password);
+  cy.get('#loginModal button[type="submit"]').click();
+
+  // Add any necessary checks to ensure the login was successful
+  // For example, you might check for the presence of a logout button
+  cy.get('button[data-auth="logout"]').should("be.visible");
+});

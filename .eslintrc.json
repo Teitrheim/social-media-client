@@ -4,6 +4,10 @@
     "es2021": true,
     "node": true
   },
+  "globals": {
+    "cy": "readonly",
+    "Cypress": "readonly"
+  },
   "extends": "eslint:recommended",
   "overrides": [
     {
@@ -12,14 +16,10 @@
         "cypress/globals": true,
         "node": true
       },
-      "globals": {
-        "cy": "readonly",
-        "Cypress": "readonly"
-      },
       "plugins": ["cypress", "node"],
       "extends": ["plugin:cypress/recommended"],
       "rules": {
-        "cypress/no-unnecessary-waiting": "on",
+        "cypress/no-unnecessary-waiting": "off",
         "no-unused-vars": "off",
         "cypress/unsafe-to-chain-command": "off"
       }
