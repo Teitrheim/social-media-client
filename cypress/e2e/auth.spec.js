@@ -1,6 +1,6 @@
 describe("Authentication Tests", () => {
   beforeEach(() => {
-    cy.visit("/"); // Adjust this to your app's URL
+    cy.visit("/");
   });
 
   it("allows a user to log in with valid credentials", () => {
@@ -38,8 +38,6 @@ describe("Authentication Tests", () => {
   });
 
   it("allows a user to log out", () => {
-    cy.login(); // Assuming `cy.login()` is your custom command to log in a user
-
     // Click the logout button
     cy.get('button[data-auth="logout"]').click();
 

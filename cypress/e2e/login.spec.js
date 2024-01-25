@@ -19,8 +19,10 @@ describe("Login Functionality Tests", () => {
 
     // Fill in the login form and submit
     cy.get("#loginModal").within(() => {
-      cy.get("#loginEmail").type("valid_user@example.com");
-      cy.get("#loginPassword").type("valid_password");
+      cy.get('input#loginEmail[placeholder="name@example.com"]').type(
+        "valid_user@example.com"
+      );
+      cy.get("input#loginPassword").type("valid_password");
       cy.get('button[type="submit"]').click();
     });
 
