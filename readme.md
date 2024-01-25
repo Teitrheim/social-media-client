@@ -12,8 +12,6 @@ This project uses various tools to ensure code quality and consistency:
 - **ESLint**: To enforce code quality.
 - **Husky & lint-staged**: For pre-commit hooks ensuring linting and formatting checks.
 
-[![Workflow Status](https://github.com/Teitrheim/social-media-client/workflows/teitrheim/badge.svg)](https://github.com/Teitrheim/social-media-client)
-
 ## Versioning Inconsistency and Correction
 
 During the development, there was an inconsistency in version numbering due to a series of major and minor updates that were not sequentially tagged. The versioning jumped from "1.1.0" to "1.0.1" and then to "1.0.2", followed by a reset to "0.0.1" and "0.0.2".
