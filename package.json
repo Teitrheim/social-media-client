@@ -1,6 +1,7 @@
 {
-  "name": "workflow",
+  "name": "css-frameworks-ca",
   "description": "Test",
+  "version": "1.3.1",
   "main": "index.js",
   "scripts": {
     "test": "npm run test-unit && npm run test-e2e-cli",
@@ -39,6 +40,5 @@
   "lint-staged": {
     "*.js": "eslint --cache --fix",
     "*.{js,css,scss,json,md, html}": "prettier --write"
-  },
-  "version": "1.3.1"
+  }
 }

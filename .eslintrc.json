@@ -4,17 +4,17 @@
     "es2021": true,
     "node": true
   },
+  "globals": {
+    "cy": "readonly",
+    "Cypress": "readonly"
+  },
   "extends": "eslint:recommended",
   "overrides": [
     {
-      "files": ["**/*.cy.js"],
+      "files": ["**/*.spec.js"],
       "env": {
         "cypress/globals": true,
         "node": true
-      },
-      "globals": {
-        "cy": "readonly",
-        "Cypress": "readonly"
       },
       "plugins": ["cypress", "node"],
       "extends": ["plugin:cypress/recommended"],
