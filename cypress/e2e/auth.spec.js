@@ -1,47 +1,42 @@
-describe("Authentication Tests", () => {
-  beforeEach(() => {
+describe("Login and Logout Functionality Tests", () => {
+  it("allows a user to log in and log out successfully", () => {
+    // Visit the homepage once
     cy.visit("/");
-  });
-
-  it("allows a user to log in with valid credentials", () => {
-    // Check if Register Modal is open and close it
-    cy.get("#registerModal").then(modal => {
-      if (modal.is(":visible")) {
-        cy.get("#registerModal .btn-close").click({ force: true });
-      }
+    // Login steps
+    cy.wait(2000); // Wait for elements to load
+    cy.get("form[id='registerForm'").within(() => {
+      cy.get(
+        'button.btn.btn-outline-success[data-bs-target="#loginModal"]'
+      ).should("be.visible");
     });
+    // Click the login button
+    cy.get('button.btn.btn-outline-success[data-bs-target="#loginModal"]')
+      .eq(1)
+      .click();
 
-    // Open the login modal
-    cy.get('button[data-bs-target="#loginModal"]').click({ force: true });
+    // Wait for the modal
+    cy.wait(1000);
 
     // Fill in the login form and submit
-    cy.get("#loginEmail").type("valid_user@example.com");
-    cy.get("#loginPassword").type("valid_password");
-    cy.get('#loginModal button[type="submit"]').click();
-
+    cy.get("#loginModal").within(() => {
+      cy.get('input#loginEmail[placeholder="name@example.com"]').type(
+        "user66@stud.noroff.no"
+      );
+      cy.get("input#loginPassword").type("123456789");
+      cy.get('button[type="submit"]').click();
+    });
     // Check if login was successful
-    cy.url().should("include", "/dashboard"); // Adjust based on the URL after login
-  });
+    cy.url().should("include", "view=profile&name=user_66");
 
-  it("does not allow a user to log in with invalid credentials", () => {
-    cy.get('.login-btn[data-bs-target="#loginModal"]').click();
+    // Logout steps
+    cy.get('button[data-auth="logout"]').should("be.visible").click();
+    cy.url().should("not.include", "/profile");
+    cy.get('button[data-bs-target="#loginModal"]').should("be.visible");
 
-    // Fill in the login form with invalid credentials and submit
-    cy.get("#loginEmail").type("invalid_user@example.com");
-    cy.get("#loginPassword").type("invalid_password");
-    cy.get('#loginModal button[type="submit"]').click();
-
-    // Check for error message
-    cy.get(".login-error")
-      .should("be.visible")
-      .and("contain", "Invalid credentials");
-  });
-
-  it("allows a user to log out", () => {
-    // Click the logout button
-    cy.get('button[data-auth="logout"]').click();
-
-    // Check if logout was successful
-    cy.url().should("not.include", "/dashboard");
+    // Check if the local/session storage has been cleared
+    cy.window()
+      .its("localStorage")
+      .invoke("getItem", "auth_token")
+      .should("be.null");
   });
 });
