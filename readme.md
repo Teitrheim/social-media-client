@@ -40,7 +40,7 @@ Versioning Inconsistency and Correction
 
 During development, there was an inconsistency in version numbering due to a series of major and minor updates that were not sequentially tagged. The versioning jumped from "1.1.0" to "1.0.1", then to "1.0.2", followed by a reset to "0.0.1" and "0.0.2".
 
-This issue has been addressed by setting the version to "1.2.0", representing the current state of the project after significant feature updates and minor patches. This correction aligns with the semantic versioning principles and ensures clarity and consistency in future updates.
+This issue has been addressed by setting the version to "1.2.0", representing the current state of the project after significant feature updates and minor patches. The newest version is 1.3.3. This correction aligns with the semantic versioning principles and ensures clarity and consistency in future updates.
 Getting Started
 
 bash
